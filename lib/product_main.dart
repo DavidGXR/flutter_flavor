@@ -4,6 +4,6 @@ import 'main.dart';
 
 void main() {
 
-  FlavorConfig flavorConfig = FlavorConfig(flavor: Flavor.prod, flavorValues: FlavourValues(name: "Production", color: Colors.red));
-  runApp(const MyApp());
+  FlavorConfig flavorConfig = FlavorConfig(flavor: Flavor.prod, flavourValues: FlavourValues(name: "Production", color: Colors.red));
+  runApp(MyApp(flavorConfig: flavorConfig));
 }

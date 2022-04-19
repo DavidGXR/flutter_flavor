@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_flavor/config.dart';
 
-void main() {
-  runApp(const MyApp());
-}
 
 class MyApp extends StatelessWidget {
 
-  const MyApp({Key? key}) : super(key: key);
+  final FlavorConfig flavorConfig;
+  MyApp({Key? key, required this.flavorConfig});
 
   @override
   Widget build(BuildContext context) {
@@ -16,26 +14,29 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: MyHomePage(flavorConfig: flavorConfig),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+
+  final FlavorConfig flavorConfig;
+  MyHomePage({Key? key, required this.flavorConfig});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {q
+class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String navBarTitle = "";
 
   @override
   void initState() {
     // TODO: implement initState
-    if (FlavorConfig.instance!.flavor == Flavor.prod) {
+
+    if (widget.flavorConfig.flavor == Flavor.prod) {
       navBarTitle = "This is Production App";
 
     } else {

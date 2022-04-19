@@ -17,14 +17,6 @@ class FlavorConfig {
   late Flavor flavor;
   late FlavourValues flavourValues;
 
-  static FlavorConfig? _instance;
-
-  factory FlavorConfig({
-    required flavor,
-    required flavorValues}) =>
-    _instance ??= FlavorConfig(flavor: flavor, flavorValues: flavorValues);
-
-  static FlavorConfig? get instance => _instance;
-  //FlavorConfig({required this.flavor, required this.flavourValues});
+  FlavorConfig({required this.flavor, required this.flavourValues});
 
 }
